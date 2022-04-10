@@ -1,0 +1,23 @@
+.title,
+.body {
+    border: none !important;
+    background: "transparent" !important;
+    outline: none !important;
+    box-shadow: none !important;
+    font-family: Georgia, "Times New Roman", Times, serif !important;
+}
+.MuiTypography-h1 {
+    border: none !important;
+    background: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    font-family: Georgia, "Times New Roman", Times, serif !important;
+    font-size: 40px !important;
+}
+.MuiTypography-body1 {
+    border: none !important;
+    background: none !important;
+    outline: none !important;
+    box-shadow: none !important;
+    font-family: Georgia, "Times New Roman", Times, serif !important;
+}

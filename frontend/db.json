@@ -1,0 +1,42 @@
+{
+    "posts": [
+        {
+            "id": 1,
+            "title": "Post #1",
+            "message": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur repellendus possimus recusandae excepturi nihil ipsam, debitis ab perferendis. Exercitationem, non aliquid eum in officiis hic enim itaque optio minus sapiente. Qui corrupti aliquid veritatis quos et laboriosam incidunt ullam quis ipsum ad dolores animi reprehenderit, magni quisquam, tempora repudiandae quia, natus officiis aspernatur cumque tempore excepturi! Necessitatibus facere eum non veniam quibusdam aperiam voluptatibus, assumenda animi unde ullam eligendi. Similique sapiente nihil quae, mollitia illo quos quod velit, incidunt dolore beatae molestiae libero vitae quasi iure error porro magnam facilis possimus eos culpa eligendi atque eius pariatur? Maxime, labore aliquid!",
+            "postPicture": "https://storage.googleapis.com/online-forum-bucket/1649140140031-Blank diagram.png",
+            "username": "tombrady",
+            "timestamp": "2020-05-01T00:00:00.000Z"
+        },
+        {
+            "id": 2,
+            "title": "Post #2",
+            "message": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur repellendus possimus recusandae excepturi nihil ipsam, debitis ab perferendis. Exercitationem, non aliquid eum in officiis hic enim itaque optio minus sapiente. Qui corrupti aliquid veritatis quos et laboriosam incidunt ullam quis ipsum ad dolores animi reprehenderit, magni quisquam, tempora repudiandae quia, natus officiis aspernatur cumque tempore excepturi! Necessitatibus facere eum non veniam quibusdam aperiam voluptatibus, assumenda animi unde ullam eligendi. Similique sapiente nihil quae, mollitia illo quos quod velit, incidunt dolore beatae molestiae libero vitae quasi iure error porro magnam facilis possimus eos culpa eligendi atque eius pariatur? Maxime, labore aliquid!",
+            "postPicture": "https://storage.googleapis.com/online-forum-bucket/profile_image.png",
+            "username": "daryll4u",
+            "timestamp": "2020-05-01T00:00:00.000Z"
+        },
+        {
+            "id": 3,
+            "title": "Post #3",
+            "message": "Lorem, ipsum dolor sit amet consectetur adipisicing elit. Pariatur repellendus possimus recusandae excepturi nihil ipsam, debitis ab perferendis. Exercitationem, non aliquid eum in officiis hic enim itaque optio minus sapiente. Qui corrupti aliquid veritatis quos et laboriosam incidunt ullam quis ipsum ad dolores animi reprehenderit, magni quisquam, tempora repudiandae quia, natus officiis aspernatur cumque tempore excepturi! Necessitatibus facere eum non veniam quibusdam aperiam voluptatibus, assumenda animi unde ullam eligendi. Similique sapiente nihil quae, mollitia illo quos quod velit, incidunt dolore beatae molestiae libero vitae quasi iure error porro magnam facilis possimus eos culpa eligendi atque eius pariatur? Maxime, labore aliquid!",
+            "postPicture": "https://storage.googleapis.com/online-forum-bucket/1643863863081-1.jpg",
+            "username": "tombrady",
+            "timestamp": "2020-05-01T00:00:00.000Z"
+        }
+    ],
+    "users": [
+        {
+            "id": 1,
+            "firstName": "Tom",
+            "surname": "Brady",
+            "username": "tombrady",
+            "password": "$2a$10$EteRQWBAsoaDjOl9fxXo.uhiuK1sOMuY8W0EC9HKc/ML0cu9nZviu",
+            "email": "tombrady@gmail.com",
+            "profilePicture": "https://storage.googleapis.com/online-forum-bucket/profile_image.png",
+            "gender": "Male",
+            "birthDate": "1996-01-11",
+            "phoneNumber": "0123456789"
+        }
+    ]
+}
