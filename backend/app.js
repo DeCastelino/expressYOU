@@ -5,12 +5,13 @@ const bodyParser = require("body-parser");
 const mongoose = require("mongoose");
 const dbConnect = require("./db");
 const router = require("./routes/routes");
+const path = require("path");
 
 const app = express();
 app.use(bodyParser.json());
 app.use(bodyParser.urlencoded({ extended: false }));
 app.use(cors());
-app.use(express.static("./public"));
+app.use(express.static(path.join(__dirname, "images")));
 
 dbConnect();
 
