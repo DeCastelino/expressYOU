@@ -21,7 +21,7 @@ function CoverLayout({
     children,
 }) {
     return (
-        <PageLayout background="white">
+        <PageLayout>
             <Grid container height="100vh">
                 <Grid
                     item

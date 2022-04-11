@@ -21,10 +21,7 @@ function PageLayout({ background, children }) {
     }, [pathname]);
 
     return (
-        <SuiBox
-            bgColor={background}
-            sx={{ overflow: "hidden", margin: -1, padding: 0 }}
-        >
+        <SuiBox bgColor={background} sx={{ overflow: "hidden", margin: -1 }}>
             {children}
         </SuiBox>
     );

@@ -1,4 +1,3 @@
-// import multer, { diskStorage } from "multer";
 const multer = require("multer");
 
 const storage = multer.diskStorage({
@@ -6,6 +5,8 @@ const storage = multer.diskStorage({
         cb(null, "../images");
     },
     filename: function (req, file, cb) {
+        console.log("File: ", file);
+        console.log("Request: ", req.body);
         cb(null, Date.now() + "-" + file.originalname); // Making filename unique by prefixing timestamp to filename
     },
 });

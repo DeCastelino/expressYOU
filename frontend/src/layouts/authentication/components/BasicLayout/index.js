@@ -17,7 +17,8 @@ function BasicLayout({ title, description, image, children }) {
             <SuiBox
                 borderRadius="lg"
                 height={"50vh"}
-                pt={6}
+                m={1}
+                pt={7}
                 sx={{
                     backgroundImage: `url(${image})`,
                     backgroundSize: "cover",
@@ -58,7 +59,10 @@ function BasicLayout({ title, description, image, children }) {
                     position: "absolute",
                     top: "50%",
                     left: "50%",
-                    transform: "translate(-50%, -30%)",
+                    transform: {
+                        xs: "translate(-50%, -20%)",
+                        sm: "translate(-50%, -30%)",
+                    },
                     width: "90%",
                     maxWidth: "1500px",
                     paddingX: 2,

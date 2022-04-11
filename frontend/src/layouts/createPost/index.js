@@ -1,18 +1,16 @@
-import { useState } from "react";
+import { useState, useContext } from "react";
+import axios from "axios";
 
 import HomeLayout from "examples/LayoutContainers/HomeLayout";
 import HomeNavbar from "examples/Navbar";
 import SuiInput from "components/SuiInput";
 import SuiButton from "components/SuiButton";
 
-import { styled } from "@mui/material/styles";
-import Icon from "@mui/material/Icon";
-import Grid from "@mui/material/Grid";
-import Card from "@mui/material/Card";
-import CardMedia from "@mui/material/CardMedia";
+import { Context } from "../../UserContext";
+
+import { styled, Icon, Grid, Card, CardMedia } from "@mui/material";
 
 import "./index.css";
-import axios from "axios";
 
 const Input = styled("input")({
     display: "none",
@@ -22,36 +20,23 @@ const CreatePost = () => {
     const [title, setTitle] = useState("");
     const [body, setBody] = useState("");
     const [file, setFile] = useState(null);
+    const { user } = useContext(Context);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const user = localStorage.getItem("user");
-        const userInfo = JSON.parse(user);
-        const username = userInfo.username;
-        const profilePicture = userInfo.profilePicture;
         const data = new FormData();
         const filename = Date.now() + file.name;
         data.append("name", filename);
         data.append("file", file);
         if (file !== null) {
             axios
-                .post("http://localhost:8000/upload", data)
+                .post("http://localhost:8000/createPost", data)
                 .then((res) => {
-                    console.log("Public URL: ", res.data);
-                    const newPost = {
-                        title,
-                        message: body,
-                        username,
-                        image: res.data,
-                        profilePicture: profilePicture,
-                    };
-                    axios
-                        .post("http://localhost:8000/createPost", newPost)
-                        .then((res) => {
-                            window.location.href = "/posts/" + res.data.postId;
-                        });
+                    console.log(res);
                 })
-                .catch((error) => console.log("Public URL: "));
+                .catch((err) => {
+                    console.log(err);
+                });
         }
     };
 
