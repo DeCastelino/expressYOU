@@ -1,4 +1,4 @@
-import { useState, useEffect } from "react";
+import { useState, useContext } from "react";
 import axios from "axios";
 
 // @mui material components
@@ -17,6 +17,8 @@ import ChangePassword from "layouts/profile/components/ChangePassword";
 
 // Overview page components
 import Header from "layouts/profile/components/Header";
+import { Context } from "../../UserContext";
+// import profile from "../../../../backend/public/images/default_profile_picture.jpg";
 
 import { styled } from "@mui/material/styles";
 
@@ -25,18 +27,9 @@ const Input = styled("input")({
 });
 
 function Overview() {
-    const [profilePicture, setProfilePicture] = useState("");
+    const { user, setUser } = useContext(Context);
+    const [profilePicture, setProfilePicture] = useState(user.profilePicture);
     const [username, setUsername] = useState("");
-    const [user, setUser] = useState({});
-
-    useEffect(() => {
-        const user = localStorage.getItem("user");
-        if (!user) window.location = "/authentication/sign-in";
-        const userInfo = JSON.parse(user);
-        setProfilePicture(userInfo.profilePicture);
-        setUsername(userInfo.username);
-        setUser(userInfo);
-    }, []);
 
     const uploadProfilePicture = (e) => {
         e.preventDefault();
@@ -47,7 +40,7 @@ function Overview() {
         data.append("file", file);
         data.append("username", username);
         axios.post("http://localhost:8000/profile/upload", data).then((res) => {
-            user["profilePicture"] = res.data;
+            setProfilePicture(res.data.filename);
             localStorage.setItem("user", JSON.stringify(user));
             window.location.reload();
         });
@@ -77,7 +70,9 @@ function Overview() {
                     }}
                 >
                     <Avatar
-                        src={profilePicture}
+                        src={URL.createObjectURL(
+                            "/Users/s3825140/Documents/expressYOU/backend/public/images/default_profile_picture.jpg"
+                        )}
                         sx={{
                             width: 250,
                             height: 250,
