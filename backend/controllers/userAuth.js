@@ -1,13 +1,31 @@
-const user_login = (req, res) => {
-    console.log("User logged in successfully - Express");
-    // res.sendStatus(200);
-    console.log(req.body);
-    res.status(200).json({
-        username: req.body.username,
-        password: req.body.password,
-    });
+const User = require("../models/User");
+
+// LOGIN
+const user_login = (req, res) => {};
+
+// REGISTER
+const user_register = (req, res) => {
+    try {
+        const user = new User({
+            firstname: req.body.firstname,
+            surname: req.body.surname,
+            username: req.body.username,
+            email: req.body.email,
+            password: req.body.password,
+            profilePicture: req.body.profilePicture,
+            birthDate: req.body.birthDate,
+            gender: req.body.gender,
+            phoneNumber: req.body.phoneNumber,
+        });
+        user.save();
+        res.sendStatus(200);
+    } catch (err) {
+        console.log(err);
+        res.sendStatus(500);
+    }
 };
 
 module.exports = {
     user_login,
+    user_register,
 };

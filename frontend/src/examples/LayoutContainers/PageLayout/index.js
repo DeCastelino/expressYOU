@@ -1,18 +1,3 @@
-/**
-=========================================================
-* Soft UI home React - v3.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-home-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 import { useEffect } from "react";
 
 // react-router-dom components
@@ -36,13 +21,7 @@ function PageLayout({ background, children }) {
     }, [pathname]);
 
     return (
-        <SuiBox
-            width="100vw"
-            height="100%"
-            minHeight="100vh"
-            bgColor={background}
-            sx={{ margin: -1, overflow: "hidden" }}
-        >
+        <SuiBox bgColor={background} sx={{ overflow: "hidden" }}>
             {children}
         </SuiBox>
     );

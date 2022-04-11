@@ -15,23 +15,11 @@ function BasicLayout({ title, description, image, children }) {
     return (
         <PageLayout>
             <SuiBox
-                width="calc(100% - 2rem)"
-                minHeight="50vh"
                 borderRadius="lg"
-                mx={2}
-                my={2}
+                height={"50vh"}
                 pt={6}
-                pb={28}
                 sx={{
-                    backgroundImage: ({
-                        functions: { linearGradient, rgba },
-                        palette: { gradients },
-                    }) =>
-                        image &&
-                        `${linearGradient(
-                            rgba(gradients.dark.main, 0.6),
-                            rgba(gradients.dark.state, 0.6)
-                        )}, url(${image})`,
+                    backgroundImage: `url(${image})`,
                     backgroundSize: "cover",
                     backgroundPosition: "center",
                     backgroundRepeat: "no-repeat",
@@ -43,7 +31,7 @@ function BasicLayout({ title, description, image, children }) {
                     justifyContent="center"
                     sx={{ textAlign: "center" }}
                 >
-                    <Grid item xs={10} lg={4}>
+                    <Grid item xs={12}>
                         <SuiBox mt={6} mb={1}>
                             <SuiTypography
                                 variant="h1"
@@ -66,13 +54,17 @@ function BasicLayout({ title, description, image, children }) {
                 </Grid>
             </SuiBox>
             <SuiBox
-                mt={{ xs: -26, lg: -24 }}
-                px={1}
-                width="calc(100% - 2rem)"
-                mx="auto"
+                sx={{
+                    position: "absolute",
+                    top: "50%",
+                    left: "50%",
+                    transform: "translate(-50%, -30%)",
+                    width: "90%",
+                    paddingX: 2,
+                }}
             >
                 <Grid container spacing={1} justifyContent="center">
-                    <Grid item xs={11} sm={6}>
+                    <Grid item xs={12} sm={6}>
                         {children}
                     </Grid>
                 </Grid>
