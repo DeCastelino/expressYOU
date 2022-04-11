@@ -1,18 +1,3 @@
-/**
-=========================================================
-* Soft UI home React - v3.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-home-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 // react-router-dom components
 import { Link } from "react-router-dom";
 
@@ -36,7 +21,11 @@ function DefaultNavbarLink({ icon, name, route, light }) {
                 p={1}
                 display="flex"
                 alignItems="center"
-                sx={{ cursor: "pointer", userSelect: "none" }}
+                sx={{
+                    cursor: "pointer",
+                    userSelect: "none",
+                    textDecoration: "none",
+                }}
             >
                 <Icon
                     sx={{
@@ -52,7 +41,10 @@ function DefaultNavbarLink({ icon, name, route, light }) {
                     fontWeight="regular"
                     color={light ? "white" : "dark"}
                     textTransform="capitalize"
-                    sx={{ width: "100%", lineHeight: 0 }}
+                    sx={{
+                        width: "100%",
+                        lineHeight: 0,
+                    }}
                 >
                     &nbsp;{name}
                 </SuiTypography>

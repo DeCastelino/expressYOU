@@ -2,7 +2,9 @@
 import { useState, useEffect } from "react";
 import axios from "axios";
 
-import Tooltip from "@mui/material/Tooltip";
+import { Tooltip, Fab } from "@mui/material";
+
+import AddIcon from "@mui/icons-material/Add";
 
 // Soft UI home React components
 import SuiBox from "components/SuiBox";
@@ -11,9 +13,6 @@ import SuiBox from "components/SuiBox";
 import HomeLayout from "examples/LayoutContainers/HomeLayout";
 import HomeNavbar from "examples/Navbar";
 import Posts from "layouts/home/components/Posts";
-
-import Fab from "@mui/material/Fab";
-import AddIcon from "@mui/icons-material/Add";
 
 function Home() {
     const [posts, setPosts] = useState([]);
@@ -49,12 +48,17 @@ function Home() {
             </SuiBox>
             <Tooltip title="Create">
                 <Fab
-                    color="secondary"
                     aria-label="add"
-                    sx={{ position: "fixed", bottom: 30, right: 30 }}
+                    sx={{
+                        position: "fixed",
+                        bottom: 30,
+                        right: 30,
+                        backgroundColor: "#344767",
+                        ":hover": { backgroundColor: "#344767" },
+                    }}
                     onClick={handleCreatePost}
                 >
-                    <AddIcon />
+                    <AddIcon color="white" fontSize="medium" />
                 </Fab>
             </Tooltip>
         </HomeLayout>

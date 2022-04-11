@@ -2,6 +2,9 @@ import { Link } from "react-router-dom";
 import { useState, useContext } from "react";
 import axios from "axios";
 
+// Authentication layout components
+import CoverLayout from "layouts/authentication/components/CoverLayout";
+
 // Soft UI home React components
 import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
@@ -9,10 +12,7 @@ import SuiInput from "components/SuiInput";
 import SuiButton from "components/SuiButton";
 import { Context } from "../../../UserContext";
 
-import FormHelperText from "@mui/material/FormHelperText";
-
-// Authentication layout components
-import CoverLayout from "layouts/authentication/components/CoverLayout";
+import { FormHelperText } from "@mui/material";
 
 // Images
 import curved9 from "assets/images/curved-images/curved14.jpg";
@@ -35,8 +35,8 @@ function SignIn() {
         axios
             .post("http://localhost:8000/login", user)
             .then((res) => {
-                console.log("Logged in");
-                console.log(res.data);
+                setUser(res.data);
+                window.location.href = "/";
             })
             .catch((err) => {
                 handleErrorMessage();
@@ -112,7 +112,7 @@ function SignIn() {
                         color="text"
                         fontWeight="regular"
                     >
-                        Don&apos;t have an account?{" "}
+                        Don't have an account?{" "}
                         <SuiTypography
                             component={Link}
                             to="/authentication/sign-up"
