@@ -60,11 +60,12 @@ function BasicLayout({ title, description, image, children }) {
                     left: "50%",
                     transform: "translate(-50%, -30%)",
                     width: "90%",
+                    maxWidth: "1500px",
                     paddingX: 2,
                 }}
             >
                 <Grid container spacing={1} justifyContent="center">
-                    <Grid item xs={12} sm={6}>
+                    <Grid item xs={12} sm={10} md={8} lg={8}>
                         {children}
                     </Grid>
                 </Grid>

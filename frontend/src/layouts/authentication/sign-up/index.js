@@ -1,23 +1,19 @@
-import { useState, useEffect } from "react";
+// React Components
+import { useState } from "react";
 import axios from "axios";
-
-// react-router-dom components
 import { Link } from "react-router-dom";
 
 // @mui material components
-import Card from "@mui/material/Card";
-import Grid from "@mui/material/Grid";
-import Select from "@mui/material/Select";
-import MenuItem from "@mui/material/MenuItem";
+import { Card, Grid, Select, MenuItem } from "@mui/material";
+
+// Authentication layout components
+import BasicLayout from "layouts/authentication/components/BasicLayout";
 
 // Soft UI home React components
 import SuiBox from "components/SuiBox";
 import SuiTypography from "components/SuiTypography";
 import SuiInput from "components/SuiInput";
 import SuiButton from "components/SuiButton";
-
-// Authentication layout components
-import BasicLayout from "layouts/authentication/components/BasicLayout";
 
 // Images
 import cover from "assets/images/curved-images/cover.jpg";

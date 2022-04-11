@@ -1,18 +1,3 @@
-/**
-=========================================================
-* Soft UI home React - v3.0.0
-=========================================================
-
-* Product Page: https://www.creative-tim.com/product/soft-ui-home-react
-* Copyright 2021 Creative Tim (https://www.creative-tim.com)
-
-Coded by www.creative-tim.com
-
- =========================================================
-
-* The above copyright notice and this permission notice shall be included in all copies or substantial portions of the Software.
-*/
-
 // prop-types is a library for typechecking of props
 import PropTypes from "prop-types";
 
@@ -37,16 +22,21 @@ function CoverLayout({
 }) {
     return (
         <PageLayout background="white">
-            <Grid
-                container
-                justifyContent="center"
-                sx={{
-                    minHeight: "75vh",
-                    margin: 0,
-                }}
-            >
-                <Grid item xs={11} sm={8} md={5} xl={3}>
-                    <SuiBox mt={top}>
+            <Grid container height="100vh">
+                <Grid
+                    item
+                    xs={12}
+                    sm={12}
+                    md={6}
+                    lg={6}
+                    xl={6}
+                    sx={{
+                        display: "flex",
+                        alignItems: "center",
+                        justifyContent: "center",
+                    }}
+                >
+                    <SuiBox>
                         <SuiBox pt={3} px={3}>
                             {!header ? (
                                 <>
@@ -75,31 +65,29 @@ function CoverLayout({
                         <SuiBox p={3}>{children}</SuiBox>
                     </SuiBox>
                 </Grid>
-                <Grid item xs={12} md={5}>
+                <Grid
+                    item
+                    xl={6}
+                    lg={6}
+                    md={6}
+                    display={{ xs: "none", sm: "none", md: "block" }}
+                >
                     <SuiBox
-                        height="100%"
-                        display={{ xs: "none", md: "block" }}
+                        height="75%"
                         position="relative"
-                        right={{ md: "-12rem", xl: "-16rem" }}
-                        mr={-16}
+                        right={{ md: "-12rem", xl: "-20rem" }}
                         sx={{
+                            display: "flex",
+                            justifyContent: "flex-end",
                             transform: "skewX(-10deg)",
                             overflow: "hidden",
                             borderBottomLeftRadius: ({
                                 borders: { borderRadius },
                             }) => borderRadius.lg,
+                            backgroundImage: `url(${image})`,
+                            backgroundSize: "cover",
                         }}
-                    >
-                        <SuiBox
-                            ml={-8}
-                            height="100%"
-                            sx={{
-                                backgroundImage: `url(${image})`,
-                                backgroundSize: "cover",
-                                transform: "skewX(10deg)",
-                            }}
-                        />
-                    </SuiBox>
+                    ></SuiBox>
                 </Grid>
             </Grid>
         </PageLayout>
