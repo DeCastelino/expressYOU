@@ -13,7 +13,7 @@ const Posts = ({ posts }) => {
         >
             {posts.map((post) => (
                 <Grid item xs={3}>
-                    <Post post={post} key={post.postId} />
+                    <Post post={post} key={post._id} />
                 </Grid>
             ))}
         </Grid>

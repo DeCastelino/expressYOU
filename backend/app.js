@@ -21,4 +21,4 @@ mongoose.connection.once("open", () => {
     });
 });
 
-app.use("/", router);
+app.use("/api/", router);

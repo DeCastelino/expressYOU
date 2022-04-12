@@ -67,7 +67,7 @@ function SignUp() {
             password.length >= 8
         ) {
             axios
-                .post("http://localhost:8000/register", user)
+                .post("/register", user)
                 .then((res) => {
                     console.log("User registered successfully");
                     window.location = "/authentication/sign-in";

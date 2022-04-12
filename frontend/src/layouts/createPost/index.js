@@ -18,26 +18,41 @@ const Input = styled("input")({
 
 const CreatePost = () => {
     const [title, setTitle] = useState("");
-    const [body, setBody] = useState("");
+    const [content, setContent] = useState("");
     const [file, setFile] = useState(null);
     const { user } = useContext(Context);
 
     const handleSubmit = (e) => {
         e.preventDefault();
-        const data = new FormData();
-        const filename = Date.now() + file.name;
-        data.append("name", filename);
-        data.append("file", file);
+
+        const postInfo = {
+            title,
+            content,
+            username: user.username,
+        };
         if (file !== null) {
+            const data = new FormData();
+            const filename = Date.now() + "-" + file.name;
+            data.append("name", filename);
+            data.append("file", file);
+            postInfo.postPicture = filename;
             axios
-                .post("http://localhost:8000/createPost", data)
-                .then((res) => {
-                    console.log(res);
-                })
+                .post("/upload", data)
+                .then((res) => {})
                 .catch((err) => {
                     console.log(err);
                 });
         }
+
+        axios
+            .post("/createPost", postInfo)
+            .then((res) => {
+                console.log(res.data);
+                window.location.replace(`/post/${res.data._id}`);
+            })
+            .catch((err) => {
+                console.log(err);
+            });
     };
 
     return (
@@ -145,7 +160,7 @@ const CreatePost = () => {
                 <Grid item xs={12}>
                     <SuiInput
                         className="body"
-                        onChange={(e) => setBody(e.target.value)}
+                        onChange={(e) => setContent(e.target.value)}
                         placeholder="Express yourself here..."
                         multiline
                         inputProps={{

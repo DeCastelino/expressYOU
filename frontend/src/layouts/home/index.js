@@ -1,5 +1,5 @@
 // MUI Components
-import { useState, useEffect } from "react";
+import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
 import { Tooltip, Fab } from "@mui/material";
@@ -13,14 +13,18 @@ import SuiBox from "components/SuiBox";
 import HomeLayout from "examples/LayoutContainers/HomeLayout";
 import HomeNavbar from "examples/Navbar";
 import Posts from "layouts/home/components/Posts";
+import { Context } from "../../UserContext";
 
 function Home() {
     const [posts, setPosts] = useState([]);
+    const { user } = useContext(Context);
 
     useEffect(() => {
-        axios.get("http://localhost:8000/posts").then((res) => {
-            setPosts(res.data);
-        });
+        axios
+            .get(`/posts`, { params: { username: user.username } })
+            .then((res) => {
+                setPosts(res.data);
+            });
     }, []);
 
     const handleCreatePost = (e) => {

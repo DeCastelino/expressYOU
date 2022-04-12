@@ -7,7 +7,7 @@ const Post = ({ post, key }) => {
     return (
         <Card>
             <SuiTypography variant="h6">{post.username}</SuiTypography>
-            <SuiTypography variant="h6">{post.timestamp}</SuiTypography>
+            <SuiTypography variant="h6">{post.updatedAt}</SuiTypography>
         </Card>
     );
 };

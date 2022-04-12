@@ -33,7 +33,7 @@ function SignIn() {
         e.preventDefault();
         const user = { username, password };
         axios
-            .post("http://localhost:8000/login", user)
+            .post("/login", user)
             .then((res) => {
                 setUser(res.data);
                 window.location.href = "/";
