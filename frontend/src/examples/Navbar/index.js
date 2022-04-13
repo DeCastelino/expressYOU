@@ -46,6 +46,7 @@ function HomeNavbar({ absolute, light, isMini }) {
     const [openMenu, setOpenMenu] = useState(false);
     const [profilePicture, setProfilePicture] = useState("");
     const { user } = useContext(Context);
+    const profileImage = `http://localhost:8000/images/${user.profilePicture}`;
 
     useEffect(() => {
         // Retrieving profile picture
@@ -126,7 +127,7 @@ function HomeNavbar({ absolute, light, isMini }) {
                             <Link to="/profile">
                                 <IconButton sx={navbarIconButton} size="small">
                                     <SuiAvatar
-                                        src={profilePicture}
+                                        src={profileImage}
                                         alt="Avatar"
                                         size="sm"
                                     />

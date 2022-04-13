@@ -2,7 +2,7 @@
 import { useState, useEffect, useContext } from "react";
 import axios from "axios";
 
-import { Tooltip, Fab } from "@mui/material";
+import { Tooltip, Fab, Grid } from "@mui/material";
 
 import AddIcon from "@mui/icons-material/Add";
 
@@ -42,31 +42,25 @@ function Home() {
                     color: "dark",
                 }}
             />
-            <SuiBox
-                sx={{
-                    display: "flex",
-                    flexDirection: "column",
-                    paddingTop: 5,
-                    width: "60vw",
-                }}
-            >
-                <Posts posts={posts} />
-            </SuiBox>
-            <Tooltip title="Create">
-                <Fab
-                    aria-label="add"
-                    sx={{
-                        position: "fixed",
-                        bottom: 30,
-                        right: 30,
-                        backgroundColor: "#344767",
-                        ":hover": { backgroundColor: "#344767" },
-                    }}
-                    onClick={handleCreatePost}
-                >
-                    <AddIcon color="white" fontSize="medium" />
-                </Fab>
-            </Tooltip>
+            <Grid container spacing={2} pt={5}>
+                <Grid item lg={8} xs={12}>
+                    <Posts posts={posts} />
+                </Grid>
+                <Tooltip title="Create">
+                    <Fab
+                        sx={{
+                            position: "fixed",
+                            bottom: 30,
+                            right: 30,
+                            backgroundColor: "#344767",
+                            ":hover": { backgroundColor: "#344767" },
+                        }}
+                        onClick={handleCreatePost}
+                    >
+                        <AddIcon color="white" fontSize="medium" />
+                    </Fab>
+                </Tooltip>
+            </Grid>
         </HomeLayout>
     );
 }
