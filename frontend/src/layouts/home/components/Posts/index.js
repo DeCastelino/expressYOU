@@ -12,7 +12,7 @@ const Posts = ({ posts }) => {
             }}
         >
             {posts.map((post) => (
-                <Grid item xs={12}>
+                <Grid item lg={4} md={4} sm={6} xs={12}>
                     <Post post={post} key={post._id} />
                 </Grid>
             ))}

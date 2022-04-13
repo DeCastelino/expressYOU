@@ -1,49 +1,60 @@
 import { useEffect, useState } from "react";
 
-import "./index.css";
-
-import { Card, CardMedia, Grid } from "@mui/material";
 import SuiTypography from "components/SuiTypography";
 import SuiBox from "components/SuiBox";
+import SuiButton from "components/SuiButton";
+import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 const Post = ({ post, key }) => {
     const imageURL = `http://localhost:8000/images/${post.postPicture}`;
 
     return (
-        <Card
-            sx={{
-                boxShadow: 5,
-                borderRadius: 1,
-                height: 200,
-                dispaly: "flex",
-                flexDirection: "row",
-                position: "relative",
-            }}
-        >
-            <SuiBox p={1}>
-                <SuiBox sx={{ display: "flex", gap: 2 }}>
-                    <SuiTypography variant="caption">
-                        {post.username}
-                    </SuiTypography>
-                    <SuiTypography variant="caption" opacity="0.7">
-                        {post.updatedAt}
-                    </SuiTypography>
-                </SuiBox>
-                <SuiTypography variant="h3">{post.title}</SuiTypography>
+        <SuiBox pb={5}>
+            {post.postPicture && (
+                <img src={imageURL} alt="post" width="100%" height="100%" />
+            )}
+            <hr />
+            <SuiTypography className="title" sx={{ fontSize: 35 }}>
+                {post.title}
+            </SuiTypography>
+            <SuiBox sx={{ position: "relative" }}>
+                <SuiTypography
+                    classname="title"
+                    sx={{ fontSize: 15, fontStyle: "italic" }}
+                    opacity={0.8}
+                >
+                    {post.username}
+                </SuiTypography>
+                <SuiTypography
+                    classname="title"
+                    opacity="0.7"
+                    sx={{
+                        position: "absolute",
+                        right: 0,
+                        top: 0,
+                        fontSize: 15,
+                        fontStyle: "italic",
+                    }}
+                >
+                    {new Date(post.createdAt).toDateString()}
+                </SuiTypography>
             </SuiBox>
+            <hr />
+            <SuiTypography classname="body" sx={{ fontSize: 18 }}>
+                {post.content.slice(0, 200)}...
+            </SuiTypography>
             <SuiBox
                 sx={{
-                    backgroundImage: `url(${imageURL})`,
-                    position: "absolute",
-                    // display: "flex",
-                    // justifyContent: "center",
-                    // alignItems: "center",
-                    right: 0,
-                    width: { lg: 250, xs: 200 },
-                    // height: { lg: 250, xs: 50 },
+                    display: "flex",
+                    justifyContent: "flex-end",
                 }}
-            ></SuiBox>
-        </Card>
+            >
+                <SuiButton variant="text" color="dark">
+                    Read more
+                    <ArrowForwardIcon />
+                </SuiButton>
+            </SuiBox>
+        </SuiBox>
     );
 };
 

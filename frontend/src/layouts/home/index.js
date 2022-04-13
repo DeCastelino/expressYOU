@@ -42,8 +42,8 @@ function Home() {
                     color: "dark",
                 }}
             />
-            <Grid container spacing={2} pt={5}>
-                <Grid item lg={8} xs={12}>
+            <Grid container spacing={3} pt={5}>
+                <Grid item xs={12}>
                     <Posts posts={posts} />
                 </Grid>
                 <Tooltip title="Create">

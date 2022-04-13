@@ -142,7 +142,7 @@ const CreatePost = () => {
                         autoFocus
                         sx={{ marginRight: 10 }}
                         inputProps={{
-                            style: { fontSize: 40 },
+                            style: { fontSize: 35 },
                         }}
                     />
                 </Grid>
@@ -159,12 +159,12 @@ const CreatePost = () => {
             >
                 <Grid item xs={12}>
                     <SuiInput
-                        className="body"
+                        className="content"
                         onChange={(e) => setContent(e.target.value)}
                         placeholder="Express yourself here..."
                         multiline
                         inputProps={{
-                            style: { fontSize: 20 },
+                            style: { fontSize: 18 },
                         }}
                     />
                 </Grid>
