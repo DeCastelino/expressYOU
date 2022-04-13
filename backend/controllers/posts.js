@@ -2,6 +2,10 @@ const Post = require("../models/Post");
 
 const get_all_posts = async (req, res) => {
     const postList = await Post.find({ username: req.query.username });
+    const snippet = postList.content;
+    console.log(snippet);
+    postList.snippet = snippet;
+    console.log(postList);
     res.status(200).json(postList);
 };
 

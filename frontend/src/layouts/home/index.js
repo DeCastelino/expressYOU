@@ -46,6 +46,8 @@ function Home() {
                 sx={{
                     display: "flex",
                     flexDirection: "column",
+                    paddingTop: 5,
+                    width: "60vw",
                 }}
             >
                 <Posts posts={posts} />
