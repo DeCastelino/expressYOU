@@ -18,7 +18,6 @@ import ChangePassword from "layouts/profile/components/ChangePassword";
 // Overview page components
 import Header from "layouts/profile/components/Header";
 import { Context } from "../../UserContext";
-// import profile from "../../../../backend/public/images/default_profile_picture.jpg";
 
 import { styled } from "@mui/material/styles";
 
@@ -30,6 +29,7 @@ function Overview() {
     const { user, setUser } = useContext(Context);
     const [profilePicture, setProfilePicture] = useState(user.profilePicture);
     const [username, setUsername] = useState("");
+    const imagePath = "http://localhost:8000/images/";
 
     const uploadProfilePicture = (e) => {
         e.preventDefault();
@@ -52,27 +52,25 @@ function Overview() {
             <SuiBox
                 sx={{
                     display: "flex",
-                    // flexDirection: "column",
+                    flexDirection: { xs: "column", lg: "row" },
                     paddingTop: 5,
                     gap: 3,
                 }}
             >
                 <Card
                     sx={{
-                        paddingY: 6,
+                        paddingY: 4,
                         display: "flex",
                         alignItems: "center",
                         justifyContent: "center",
                         position: "sticky",
                         top: 0,
-                        width: `30vw`,
-                        height: `50vh`,
+                        minWidth: `30%`,
+                        maxHeight: `40vh`,
                     }}
                 >
                     <Avatar
-                        src={URL.createObjectURL(
-                            "/Users/s3825140/Documents/expressYOU/backend/public/images/default_profile_picture.jpg"
-                        )}
+                        src={imagePath + profilePicture}
                         sx={{
                             width: 250,
                             height: 250,

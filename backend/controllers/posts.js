@@ -1,7 +1,7 @@
 const Post = require("../models/Post");
 
 const get_all_posts = async (req, res) => {
-    const postList = await Post.find();
+    const postList = await Post.find().sort({ updatedAt: "desc" });
     res.status(200).json(postList);
 };
 
