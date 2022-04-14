@@ -47,7 +47,7 @@ export default function App() {
                     element={user ? <CreatePost /> : <SignIn />}
                 />
                 <Route
-                    path="/posts/:postId"
+                    path="/post/:postId"
                     element={user ? <SinglePost /> : <SignIn />}
                 />
                 <Route

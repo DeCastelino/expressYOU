@@ -4,6 +4,7 @@ import SuiButton from "components/SuiButton";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
 
 import { styled } from "@mui/material";
+import { Link } from "react-router-dom";
 
 const Image = styled("img")`
     width: 100%;
@@ -41,7 +42,7 @@ const Post = ({ post, key }) => {
                         fontStyle: "italic",
                     }}
                 >
-                    {new Date(post.createdAt).toDateString()}
+                    {new Date(post.updatedAt).toDateString()}
                 </SuiTypography>
             </SuiBox>
             <hr />
@@ -55,10 +56,12 @@ const Post = ({ post, key }) => {
                     paddingTop: 1,
                 }}
             >
-                <SuiButton variant="text" color="dark">
-                    Read more
-                    <ArrowForwardIcon />
-                </SuiButton>
+                <Link to={`/post/${post._id}`}>
+                    <SuiButton variant="text" color="dark">
+                        Read more
+                        <ArrowForwardIcon />
+                    </SuiButton>
+                </Link>
             </SuiBox>
         </SuiBox>
     );
