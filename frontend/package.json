@@ -7,6 +7,7 @@
     "description": "A website to express yourself in the form of posts",
     "dependencies": {
         "@mui/icons-material": "5.1.1",
+        "@mui/lab": "^5.0.0-alpha.77",
         "@mui/material": "5.1.1",
         "@testing-library/jest-dom": "5.11.4",
         "@testing-library/react": "11.1.0",

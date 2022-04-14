@@ -5,6 +5,7 @@ import HomeLayout from "examples/LayoutContainers/HomeLayout";
 import HomeNavbar from "examples/Navbar";
 import SuiInput from "components/SuiInput";
 import SuiButton from "components/SuiButton";
+import SuiBox from "components/SuiBox";
 
 import { Context } from "../../UserContext";
 
@@ -65,112 +66,80 @@ const CreatePost = () => {
                     color: "dark",
                 }}
             />
-            <Grid
-                container
-                spacing={2}
-                sx={{ display: "flex", paddingX: 15, paddingBottom: 2 }}
+            <SuiBox
+                sx={{
+                    display: "flex",
+                    justifyContent: "center",
+                    paddingTop: 5,
+                    paddingBottom: 2,
+                }}
             >
-                <Grid
-                    item
-                    sx={{
-                        display: "flex",
-                        marginLeft: "auto",
-                        marginRight: 6,
-                    }}
+                <SuiButton
+                    variant="outlined"
+                    color="success"
+                    size="small"
+                    circular
+                    onClick={handleSubmit}
                 >
-                    <SuiButton
-                        variant="outlined"
-                        color="success"
-                        size="small"
-                        circular
-                        onClick={handleSubmit}
-                    >
-                        Publish
-                    </SuiButton>
-                </Grid>
-            </Grid>
+                    Publish
+                </SuiButton>
+            </SuiBox>
             <Card
                 sx={{
-                    marginLeft: 14,
-                    marginRight: 15,
                     marginBottom: 2,
+                    boxShadow: "none",
                 }}
             >
                 {file && (
                     <CardMedia
                         component="img"
                         image={URL.createObjectURL(file)}
-                        sx={{ margin: 0, padding: 0, maxHeight: 400 }}
+                        sx={{
+                            margin: 0,
+                            padding: 0,
+                            maxHeight: 400,
+                        }}
                     />
                 )}
             </Card>
-            <Grid
-                container
-                spacing={2}
-                sx={{
-                    display: "flex",
-                    marginLeft: 5,
-                }}
-            >
-                <Grid
-                    item
-                    sx={{
-                        marginY: "auto",
+            <SuiBox sx={{ display: "flex", alignItems: "center" }}>
+                <label>
+                    <Input
+                        accept="image/*"
+                        id="file"
+                        name="file"
+                        type="file"
+                        onChange={(e) => {
+                            setFile(e.target.files[0]);
+                        }}
+                    />
+                    <Icon color="dark" fontSize="large">
+                        add_circles
+                    </Icon>
+                </label>
+                <SuiInput
+                    className="title"
+                    onChange={(e) => setTitle(e.target.value)}
+                    placeholder="Title"
+                    multiline
+                    autoFocus
+                    inputProps={{
+                        style: { fontSize: 35 },
                     }}
-                >
-                    <label>
-                        <Input
-                            accept="image/*"
-                            id="file"
-                            name="file"
-                            type="file"
-                            onChange={(e) => {
-                                setFile(e.target.files[0]);
-                            }}
-                        />
-                        <Icon color="dark" fontSize="large">
-                            add_circles
-                        </Icon>
-                    </label>
-                </Grid>
-                <Grid item xs={10}>
-                    <SuiInput
-                        className="title"
-                        onChange={(e) => setTitle(e.target.value)}
-                        placeholder="Title"
-                        multiline
-                        autoFocus
-                        sx={{ marginRight: 10 }}
-                        inputProps={{
-                            style: { fontSize: 35 },
-                        }}
-                    />
-                </Grid>
-            </Grid>
-            <Grid
-                container
-                spacing={2}
-                sx={{
-                    display: "flex",
-                    paddingLeft: 11,
-                    paddingRight: 17,
-                    margin: 0,
-                }}
-            >
-                <Grid item xs={12}>
-                    <SuiInput
-                        className="content"
-                        onChange={(e) => setContent(e.target.value)}
-                        placeholder="Express yourself here..."
-                        multiline
-                        inputProps={{
-                            style: { fontSize: 18 },
-                        }}
-                    />
-                </Grid>
-            </Grid>
+                />
+            </SuiBox>
+            <SuiBox sx={{ paddingX: 4 }}>
+                <SuiInput
+                    className="content"
+                    onChange={(e) => setContent(e.target.value)}
+                    placeholder="Express yourself here..."
+                    multiline
+                    inputProps={{
+                        style: { fontSize: 18 },
+                    }}
+                />
+            </SuiBox>
         </HomeLayout>
     );
 };
-
 export default CreatePost;

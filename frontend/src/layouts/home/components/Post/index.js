@@ -1,9 +1,14 @@
-import { useEffect, useState } from "react";
-
 import SuiTypography from "components/SuiTypography";
 import SuiBox from "components/SuiBox";
 import SuiButton from "components/SuiButton";
 import ArrowForwardIcon from "@mui/icons-material/ArrowForward";
+
+import { styled } from "@mui/material";
+
+const Image = styled("img")`
+    width: 100%;
+    max-height: 400px;
+`;
 
 const Post = ({ post, key }) => {
     const imageURL = `http://localhost:8000/images/${post.postPicture}`;
@@ -11,7 +16,7 @@ const Post = ({ post, key }) => {
     return (
         <SuiBox pb={5}>
             {post.postPicture && (
-                <img src={imageURL} alt="post" width="100%" height="100%" />
+                <Image src={imageURL} alt="post" width="100%" />
             )}
             <hr />
             <SuiTypography className="title" sx={{ fontSize: 35 }}>
@@ -19,14 +24,14 @@ const Post = ({ post, key }) => {
             </SuiTypography>
             <SuiBox sx={{ position: "relative" }}>
                 <SuiTypography
-                    classname="title"
+                    className="title"
                     sx={{ fontSize: 15, fontStyle: "italic" }}
                     opacity={0.8}
                 >
                     {post.username}
                 </SuiTypography>
                 <SuiTypography
-                    classname="title"
+                    className="title"
                     opacity="0.7"
                     sx={{
                         position: "absolute",
@@ -40,13 +45,14 @@ const Post = ({ post, key }) => {
                 </SuiTypography>
             </SuiBox>
             <hr />
-            <SuiTypography classname="body" sx={{ fontSize: 18 }}>
+            <SuiTypography className="body" sx={{ fontSize: 18 }}>
                 {post.content.slice(0, 200)}...
             </SuiTypography>
             <SuiBox
                 sx={{
                     display: "flex",
                     justifyContent: "flex-end",
+                    paddingTop: 1,
                 }}
             >
                 <SuiButton variant="text" color="dark">
