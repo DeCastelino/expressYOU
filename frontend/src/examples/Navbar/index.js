@@ -7,9 +7,7 @@ import { Link } from "react-router-dom";
 import PropTypes from "prop-types";
 
 // @material-ui core components
-import AppBar from "@mui/material/AppBar";
-import Toolbar from "@mui/material/Toolbar";
-import IconButton from "@mui/material/IconButton";
+import { AppBar, Toolbar, IconButton } from "@mui/material";
 
 // Soft UI home PRO React components
 import SuiBox from "components/SuiBox";
@@ -35,8 +33,6 @@ import {
     setMiniSidenav,
     setOpenConfigurator,
 } from "context";
-
-// Images
 
 function HomeNavbar({ absolute, light, isMini }) {
     const [navbarType, setNavbarType] = useState();

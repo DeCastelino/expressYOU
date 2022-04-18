@@ -12,7 +12,9 @@ router.post("/login", userController.user_login);
 router.post("/register", userController.user_register);
 router.post("/upload", upload.single("file"), postController.upload_image);
 router.post("/createPost", postController.create_post);
+router.post("/post/:id", postController.update_post);
 
 // DELETE ROUTES
+router.delete("/post/:id", postController.delete_post);
 
 module.exports = router;
