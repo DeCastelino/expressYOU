@@ -34,13 +34,10 @@ const Post = ({ post, key }) => {
             <SuiBox
                 sx={{
                     backgroundImage: `url(${imageURL})`,
+                    backgroundRepeat: "no-repeat",
+                    backgroundSize: "cover",
                     position: "absolute",
-                    // display: "flex",
-                    // justifyContent: "center",
-                    // alignItems: "center",
                     right: 0,
-                    width: { lg: 250, xs: 200 },
-                    // height: { lg: 250, xs: 50 },
                 }}
             ></SuiBox>
         </Card>
